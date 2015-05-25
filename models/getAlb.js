@@ -3,8 +3,7 @@ var fs = require('fs');
 var request = require('request');
 
 var albumObjForm = '';
-var artist = 'Bob Dylan ';
-var album = 'Another Side of ';
+
 
 var getAlbum = function(art, alb){
    var albObj = {};

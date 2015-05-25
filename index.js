@@ -13,6 +13,7 @@ server.route({
   }
 });
 
-
+var artist = 'Bob Dylan ';
+var album = 'Another Side of ';
 
 getAlbum(artist, album);
