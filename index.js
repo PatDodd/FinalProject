@@ -1,5 +1,5 @@
 // FinalProject/index.js
-
+var getAlbum = require('./models/getAlb');
 var hapi = require('hapi');
 var server = new hapi.Server();
 server.connection({port: 8000});
@@ -12,3 +12,7 @@ server.route({
     reply("Hello World! Grunt is running.");
   }
 });
+
+
+
+getAlbum(artist, album);
