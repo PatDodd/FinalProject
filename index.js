@@ -13,7 +13,7 @@ server.route({
   }
 });
 
-var artist = 'Bob Dylan ';
-var album = 'Another Side of ';
+var artist = 'The Ramones';
+var album = 'Too Tough to Die';
 
 getAlbum(artist, album);
