@@ -1,13 +1,11 @@
 var fs = require('fs');
 var temp = require('./temp.json');
-var lib = require('./library.json')
+var lib = require('./library.json');
 
-
+var tempStr = JSON.stringify(temp);
+var libStr = JSON.stringify(lib);
 
 var saveToLibrary = function(){
-
-  var tempStr = JSON.stringify(temp);
-  var libStr = JSON.stringify(lib);
 
   var item = JSON.parse(tempStr);
   var libJson = JSON.parse(libStr).albums;
@@ -24,4 +22,4 @@ var saveToLibrary = function(){
 
 saveToLibrary();
 
-module.exports = saveToLibrary;
+//module.exports = saveToLibrary;

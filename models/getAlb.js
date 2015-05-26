@@ -2,10 +2,8 @@
 var fs = require('fs');
 var request = require('request');
 
-var albumObjForm = '';
-
 var getAlbum = function(art, alb){
-   var albObj = {};
+
    request.get('https://api.spotify.com/v1/search?q=' + art +"%20" + "%20" +  alb + '&type=album', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var id = JSON.parse(body).albums.items[0].id;
