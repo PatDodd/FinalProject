@@ -14,6 +14,6 @@ server.route({
 });
 
 var artist = 'Quasi';
-var album = 'American Gong';
+var album = 'Mole City';
 
 getAlbum(artist, album);
