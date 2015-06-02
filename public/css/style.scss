@@ -12,6 +12,15 @@ $primary-color: rgb(128,128,128);
     font-family: $font-stack;
   }
 
+  ol{
+    margin: 0;
+    font-family: $font-stack;
+  }
+
+  h2, h3{
+    font-family: $font-stack;
+  }
+
   .nav_items li{
     display: inline-block;
   }
@@ -42,4 +51,5 @@ $primary-color: rgb(128,128,128);
   .albContainers img{
     width: 70%;
     height:auto;
+    border: 1px black solid;
   }

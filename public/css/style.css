@@ -7,6 +7,13 @@ ul {
   padding: 0;
   font-family: Courier, Helvetica, sans-serif; }
 
+ol {
+  margin: 0;
+  font-family: Courier, Helvetica, sans-serif; }
+
+h2, h3 {
+  font-family: Courier, Helvetica, sans-serif; }
+
 .nav_items li {
   display: inline-block; }
 
@@ -30,6 +37,7 @@ a:hover {
 
 .albContainers img {
   width: 70%;
-  height: auto; }
+  height: auto;
+  border: 1px black solid; }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,22 +2,11 @@
 var getAlbum = require('./models/getAlb');
 var hapi = require('hapi');
 var fs = require('fs');
+var async = require('async');
 var server = new hapi.Server();
+
 server.connection({port: 8000});
 server.start();
-
-// server.route({
-//   method: "GET",
-//   path: "/",
-//   handler: function(req, reply){
-//     reply("Hello World! Grunt is running.");
-//   }
-// });
-
-var artist = 'Quasi';
-var album = 'Mole City';
-
-getAlbum(artist, album);
 
 server.views({
   path: "views/templates",
@@ -54,6 +43,21 @@ server.route({
         artist: album.artist,
         albumName: album.albumName,
         tracks: album.tracksArr
+      });
+    });
+  }
+});
+
+server.route({
+  method: "POST",
+  path: "/search",
+  handler: function(req, reply){
+    getAlbum(req.payload.search);
+    fs.readFile("models/temp.json", "utf8", function(err, data){
+      var result = JSON.parse(data);
+      reply.view("search", {
+        title: "Search Results",
+        result: result
       });
     });
   }
