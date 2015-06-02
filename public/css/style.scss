@@ -1,0 +1,45 @@
+$font-stack:    Courier, Helvetica, sans-serif;
+$primary-color: rgb(128,128,128);
+
+  nav{
+      margin-bottom: 15px;
+  }
+
+  ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+    font-family: $font-stack;
+  }
+
+  .nav_items li{
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    color:black;
+  }
+
+  a:hover{
+    color: $primary-color;
+  }
+
+  .searchForm{
+    margin-bottom: 15px;
+  }
+
+  .searchForm input{
+    width: 225px;
+  }
+
+  .albContainers{
+    display: inline-block;
+    margin-bottom: 30px;
+    line-height: 1.4em;
+  }
+
+  .albContainers img{
+    width: 70%;
+    height:auto;
+  }

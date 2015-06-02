@@ -1,11 +1,35 @@
-/* public/css/style.css */
-body{
-  transition: transform 1s linear;
-  transform: rotateZ(30deg);
-  box-sizing: border-box;
-  display: flex;
-}
+nav {
+  margin-bottom: 15px; }
 
-h1{
-  display: flex;
-}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: Courier, Helvetica, sans-serif; }
+
+.nav_items li {
+  display: inline-block; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+a:hover {
+  color: gray; }
+
+.searchForm {
+  margin-bottom: 15px; }
+
+.searchForm input {
+  width: 225px; }
+
+.albContainers {
+  display: inline-block;
+  margin-bottom: 30px;
+  line-height: 1.4em; }
+
+.albContainers img {
+  width: 70%;
+  height: auto; }
+
+/*# sourceMappingURL=style.css.map */

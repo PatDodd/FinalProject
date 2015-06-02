@@ -1,0 +1,15 @@
+<h3>Your Albums:</h3>
+
+
+{{#albums}}
+<div class="albContainers">
+  <a class="albLink" href="album/{{@index}}">
+    <ul>
+      <li><img src="{{albumArtMed}}" alt="albumImg"/>
+      <li>Artist: {{artist}}
+      <li>Album: {{albumName}}
+      <li><small>click to view album</small>
+    </ul>
+  </a>
+</div>
+{{/albums}}
