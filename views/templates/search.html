@@ -1,11 +1,11 @@
 <h3>Search Results: </h3>
 {{#result}}
-<div class="albContainers">
+<div class="albContainers2">
     <ul>
       <li><img src="{{albumArtMed}}" alt="albumImg"/>
       <li>Artist: {{artist}}
       <li>Album: {{albumName}}
-      <li><form method = "POST" action="/saved"><button type="submit">Add album to library</button></form>
+      <li><form method="POST" action="/saved"><button type="submit">Add album to library</button></form>
     </ul>
 {{/result}}
 {{message}}

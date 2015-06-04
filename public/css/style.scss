@@ -43,15 +43,28 @@ $primary-color: rgb(128,128,128);
     width: 225px;
   }
 
-  .albContainers{
+  .albContainers2{
     display: inline-block;
     margin-bottom: 30px;
-    margin-right: 20px;
+    margin-right: 30px;
     line-height: 1.4em;
   }
 
-  .albContainers img{
-    max-width: 250px;
+  .albContainers1{
+    @extend .albContainers2;
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .albImg{
+    width: 232px;
+    height: 232px;
     height:auto;
     border: 1px black solid;
+  }
+
+  .libImg {
+    @extend .albImg;
   }
