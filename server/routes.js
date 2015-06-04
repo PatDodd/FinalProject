@@ -1,5 +1,8 @@
 // server/routes.js
 
+var fs = require('fs');
+
+
 module.exports = [
   {
     method: "GET",
@@ -15,6 +18,11 @@ module.exports = [
     method: "POST",
     path: "/search",
     handler: require("./handlers/search")
+  },
+  {
+    method: "POST",
+    path: "/saved",
+    handler: require("./handlers/saved")
   },
   {
     method: "GET",

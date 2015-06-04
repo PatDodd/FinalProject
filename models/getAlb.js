@@ -30,7 +30,7 @@ var getAlbum = function(artist, callback){
           };
           albumObjForm = JSON.stringify(albObj);
           fs.writeFile('./models/temp.json', albumObjForm, 'utf8');
-        } 
+        }
         callback();
       });
     }

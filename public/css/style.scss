@@ -10,6 +10,7 @@ $primary-color: rgb(128,128,128);
     margin:0;
     padding:0;
     font-family: $font-stack;
+    font-size: .8em;
   }
 
   ol{
@@ -45,11 +46,12 @@ $primary-color: rgb(128,128,128);
   .albContainers{
     display: inline-block;
     margin-bottom: 30px;
+    margin-right: 20px;
     line-height: 1.4em;
   }
 
   .albContainers img{
-    width: 70%;
+    max-width: 250px;
     height:auto;
     border: 1px black solid;
   }
