@@ -3,12 +3,15 @@ var fs = require('fs');
 var request = require('request');
 
 var getAlbum = function(artist, callback){
+
   var albumObjForm = {};
    request.get('https://api.spotify.com/v1/search?q=' + artist +"%20" + '&type=album', function (error, response, body) {
 
     if (!error && response.statusCode == 200) {
       var id = JSON.parse(body).albums.items[0].id;
+
       request.get('https://api.spotify.com/v1/albums/' + id, function(err, response, body){
+
         if (!err && response.statusCode == 200) {
 
           var trackNames = JSON.parse(body).tracks.items;
@@ -29,10 +32,13 @@ var getAlbum = function(artist, callback){
             "tracksArr" : tracksArr
           };
           albumObjForm = JSON.stringify(albObj);
+
           fs.writeFile('./models/temp.json', albumObjForm, 'utf8');
+
         }
         callback();
       });
+
     }
   });
 };

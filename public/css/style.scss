@@ -1,5 +1,5 @@
 $font-stack:    Courier, Helvetica, sans-serif;
-$primary-color: rgb(128,128,128);
+$primary-color: rgb(136,196,37);
 
   nav{
       margin-bottom: 15px;
@@ -52,15 +52,15 @@ $primary-color: rgb(128,128,128);
 
   .albContainers1{
     @extend .albContainers2;
-    max-width: 240px;
+    max-width: 258px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .albImg{
-    width: 232px;
-    height: 232px;
+    width: 255px;
+    height: 255px;
     height:auto;
     border: 1px black solid;
   }

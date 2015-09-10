@@ -23,7 +23,7 @@ a {
   color: black; }
 
 a:hover {
-  color: gray; }
+  color: #88c425; }
 
 .searchForm {
   margin-bottom: 15px; }
@@ -38,14 +38,14 @@ a:hover {
   line-height: 1.4em; }
 
 .albContainers1 {
-  max-width: 240px;
+  max-width: 258px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
 .albImg, .libImg {
-  width: 232px;
-  height: 232px;
+  width: 255px;
+  height: 255px;
   height: auto;
   border: 1px black solid; }
 
