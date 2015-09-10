@@ -1,4 +1,4 @@
-
+// models/saveToLib.js
 var saveToLibrary = function(cb){
   var fs = require('fs');
 //  var temp = require('./temp');
@@ -38,11 +38,11 @@ var saveToLibrary = function(cb){
       }
 
 
-    console.log(temp);
-  });
+    //console.log(temp);
+  });//CLOSE fs.readFile("models/temp.json"...
 
 cb();
 
- };
+ };//CLOSE saveToLibrary()
 
 module.exports = saveToLibrary;

@@ -8,17 +8,10 @@ server.connection({port: 8000});
 var db = new sqlite.Database("albums.db", function(){
   db.run("CREATE TABLE IF NOT EXISTS albums(albumId, artistId, artist, albumName, albumArtLg, albumArtMed, albumArtSm);", function(){
   db.run("CREATE TABLE IF NOT EXISTS tracks (albumId, track);");
-  db.all("SELECT * FROM albums;", function(err, results){
-
-  });
-  db.all("SELECT * FROM tracks;", function(err, results){
-    //console.log(results);
-  });
     console.log("Startiing server!");
     server.start();
-  });
-
-});
+  });//CLOSE 'db.run("CREATE TABLE IF NOT EXISTS albums...'
+});//CLOSE 'var db = new sqlite.Database("albums.db"...'
 
 server.views({
   path: "views/templates",

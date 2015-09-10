@@ -6,7 +6,8 @@ var db = new sqlite.Database("albums.db");
 
 module.exports = function(req, reply){
 
-  db.all("SELECT * FROM albums;", function(err, data){
+  db.all("SELECT * FROM albums ORDER BY artist COLLATE NOCASE;", function(err, data){
+    if(err){console.error(err);}
     var albStrgfy = JSON.stringify(data);
     var albums = JSON.parse(albStrgfy);
 

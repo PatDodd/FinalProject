@@ -6,7 +6,7 @@ var saveToLibrary = require("../../models/saveToLib");
 
 module.exports = function(req, reply){
   saveToLibrary(function(err, results){
-//    console.log(err);
+    if(error){console.error(err);}
 
 
     reply.view("saved", {
