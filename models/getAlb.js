@@ -11,7 +11,7 @@ var getAlbum = function(artist, callback){
       var id = JSON.parse(body).albums.items[0].id;
 
       request.get('https://api.spotify.com/v1/albums/' + id, function(err, response, body){
-
+      
         if (!err && response.statusCode == 200) {
 
           var trackNames = JSON.parse(body).tracks.items;

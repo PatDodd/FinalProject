@@ -1,4 +1,4 @@
-//server/handlers/albumView.js
+//server/handlers/checkout.js
 var fs = require('fs');
 var sqlite = require("sqlite3");
 var db = new sqlite.Database("albums.db");
@@ -13,13 +13,12 @@ module.exports = function(req, reply){
          var tracks = JSON.parse(trksStr);
          //console.log(tracks);
 
-    reply.view("album", {
+    reply.view("checkout", {
       title: album.albumName,
       image: album.albumArtMed,
       artist: album.artist,
       albumName: album.albumName,
-      tracks: tracks,
-      num: req.params.num
+      tracks: tracks
     });
   });//CLOSE SELECT track FROM tracks
  });//CLOSE SELECT * FROM albums

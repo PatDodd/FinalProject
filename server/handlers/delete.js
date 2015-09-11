@@ -8,18 +8,18 @@ module.exports = function(req, reply){
     var albStrgfy = JSON.stringify(data);
     var album = JSON.parse(albStrgfy)[req.params.num];
     var id = album.albumId;
+    fs.writeFile('./models/id.json', id, 'utf8');
     db.all("SELECT track FROM tracks WHERE albumID='"+id+"';", function(err, data){
          var trksStr = JSON.stringify(data);
          var tracks = JSON.parse(trksStr);
          //console.log(tracks);
 
-    reply.view("album", {
+    reply.view("delete", {
       title: album.albumName,
       image: album.albumArtMed,
       artist: album.artist,
       albumName: album.albumName,
-      tracks: tracks,
-      num: req.params.num
+      tracks: tracks
     });
   });//CLOSE SELECT track FROM tracks
  });//CLOSE SELECT * FROM albums

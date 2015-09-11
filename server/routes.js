@@ -26,6 +26,21 @@ module.exports = [
   },
   {
     method: "GET",
+    path: "/checkout/{num}",
+    handler:require("./handlers/checkout")
+  },
+  {
+    method: "GET",
+    path: "/delete/{num}",
+    handler: require("./handlers/delete")
+  },
+  {
+    method: "POST",
+    path: "/deleted",
+    handler: require("./handlers/deleted")
+  },
+  {
+    method: "GET",
     path:"/assets/{param*}", //exposes anything you wish from the public folder
     handler: {
       directory: {

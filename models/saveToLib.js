@@ -6,7 +6,6 @@ var saveToLibrary = function(cb){
   //var tempStr = JSON.stringify(temp);
   //var item = JSON.parse(tempStr);
 
-
   fs.readFile("models/temp.json", "utf8", function(err, data){
     if (err){
       return console.error(err)
@@ -16,6 +15,7 @@ var saveToLibrary = function(cb){
     var db = new sqlite.Database("albums.db");
     var query = "INSERT INTO albums VALUES ($albumId, $artistId, $artist, $albumName, $albumArtLg, $albumArtMed, $albumArtSm);";
     var trkQuery = "INSERT INTO tracks VALUES($albumId, $track);"
+
     var statement = db.prepare(query);
     statement.run({
       $albumId : temp.albumId,
@@ -29,14 +29,12 @@ var saveToLibrary = function(cb){
 
     var trkStmnt = db.prepare(trkQuery);
 
-
       for(i = 0; i < temp.tracksArr.length; i++){
         trkStmnt.run({
             $albumId : temp.albumId,
             $track : temp.tracksArr[i]
         });
       }
-
 
     //console.log(temp);
   });//CLOSE fs.readFile("models/temp.json"...
