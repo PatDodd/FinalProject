@@ -1,4 +1,4 @@
-var fs = require('fs');
+
 var sqlite = require("sqlite3");
 
 var db = new sqlite.Database("albums.db");

@@ -20,39 +20,28 @@ module.exports = function(req, reply){
   statement.all({
     $user: user
   }, function(err, data){
-    var pHash = data[0].password;
-    //console.log(pHash);
+    // console.log(data[0]);
+    // console.log(err);
+    if(data[0]==undefined){
+      reply.redirect("/login");}
+    else{
+      var pHash = data[0].password;
+      //console.log(pHash);
+      bcrypt.compare(pass, pHash, function(err, res) {
+        var status = res;
+        //console.log(status);
+        if(status==true){
 
-    bcrypt.compare(pass, pHash, function(err, res) {
-      var status = res;
-      //console.log(status);
-      if(status==true){
+          var sessionId = uuid.v1();
 
-        var sessionId = uuid.v1();
+          var seshCookie = reply.redirect("/");
+          seshCookie.state("username", user);
+          seshCookie.state("session", sessionId);
+        } else {
+          reply.redirect("/login");
 
-        var seshCookie = reply.view(
-          "login", {
-            title: "Log-in",
-            message: "Success!"
-          },
-          {
-            layout: "custom"
-          }
-        );
-        seshCookie.state("username", user);
-        seshCookie.state("session", sessionId);
-      } else {
-        reply.view(
-          "login", {
-            title: "Log-in",
-            message: "Something went wrong... :-/ Try again."
-          },
-          {
-            layout: "custom"
-          }
-        );
-
-      }//close if...
-    });//close bcrypt.compare(...
+        }//close if(status==true...
+      });//close bcrypt.compare(...
+    }//close if(data[0]==undefined...
   }); //close statement.all(...
 };//CLOSE module.exports...

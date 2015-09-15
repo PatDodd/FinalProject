@@ -15,7 +15,7 @@ module.exports = [
     handler: require("./handlers/loginGet")
   },
   {
-    method: "POST",
+    method: ["POST"],
     path: "/login",
     handler: require("./handlers/loginPost")
   },
