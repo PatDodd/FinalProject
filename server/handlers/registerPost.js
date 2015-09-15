@@ -10,7 +10,7 @@ module.exports = function(req, reply){
   var pass = req.payload.password;
   var passV = req.payload.password_verify;
   var user = req.payload.user;
-  //console.log(passV);
+
   if(pass == passV && user != null && pass != null && passV != null){
 
   var hashed = bcrypt.hashSync(pass, 10);
