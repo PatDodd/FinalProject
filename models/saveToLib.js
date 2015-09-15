@@ -13,7 +13,7 @@ var saveToLibrary = function(cb){
     var temp = JSON.parse(data);
 
     var db = new sqlite.Database("albums.db");
-    var query = "INSERT INTO albums VALUES ($albumId, $artistId, $artist, $albumName, $albumArtLg, $albumArtMed, $albumArtSm);";
+    var query = "INSERT INTO albums VALUES ($albumId, $artistId, $artist, $albumName, $albumArtLg, $albumArtMed, $albumArtSm, $lent);";
     var trkQuery = "INSERT INTO tracks VALUES($albumId, $track);"
 
     var statement = db.prepare(query);
@@ -24,7 +24,8 @@ var saveToLibrary = function(cb){
       $albumName : temp.albumName,
       $albumArtLg : temp.albumArtLg,
       $albumArtMed : temp.albumArtMed,
-      $albumArtSm : temp.albumArtSm
+      $albumArtSm : temp.albumArtSm,
+      $lent: 0
     });
 
     var trkStmnt = db.prepare(trkQuery);

@@ -5,10 +5,15 @@ var sqlite = require("sqlite3");
 var server = new hapi.Server();
 server.connection({port: 8000});
 
-var db = new sqlite.Database("albums.db", function(){
-  db.run("CREATE TABLE IF NOT EXISTS albums(albumId, artistId, artist, albumName, albumArtLg, albumArtMed, albumArtSm);", function(){
+var db = new sqlite.Database("albums.db", function(err, data){
+  //db.run("DROP TABLE users");
+  db.run("CREATE TABLE IF NOT EXISTS albums(albumId, artistId, artist, albumName, albumArtLg, albumArtMed, albumArtSm, lent BOOLEAN);", function(){
   db.run("CREATE TABLE IF NOT EXISTS tracks (albumId, track);");
+  db.run("CREATE TABLE IF NOT EXISTS users (username, password, userId INTEGER PRIMARY KEY);");
+  db.run("CREATE TABLE IF NOT EXISTS lent (userId, albumId, date);");
+  console.log(err);
     console.log("Startiing server!");
+
     server.start();
   });//CLOSE 'db.run("CREATE TABLE IF NOT EXISTS albums...'
 });//CLOSE 'var db = new sqlite.Database("albums.db"...'

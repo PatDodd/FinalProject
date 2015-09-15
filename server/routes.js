@@ -25,6 +25,11 @@ module.exports = [
     handler: require("./handlers/register")
   },
   {
+    method: "POST",
+    path: "/register",
+    handler: require("./handlers/registerPost")
+  },
+  {
     method: "GET",
     path: "/album/{num}",
     handler: require("./handlers/albumView")

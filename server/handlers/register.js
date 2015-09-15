@@ -1,3 +1,4 @@
+// server/handlers/register.js
 module.exports = function(req, reply){
 
   reply.view(
