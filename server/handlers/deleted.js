@@ -13,6 +13,4 @@ module.exports = function(req, reply){
       });
       console.log("Deleted!");
     });
-
-
 };

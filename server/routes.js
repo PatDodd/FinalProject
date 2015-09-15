@@ -11,6 +11,21 @@ module.exports = [
   },
   {
     method: "GET",
+    path: "/login",
+    handler: require("./handlers/loginGet")
+  },
+  {
+    method: "POST",
+    path: "/login",
+    handler: require("./handlers/loginPost")
+  },
+  {
+    method: "GET",
+    path: "/register",
+    handler: require("./handlers/register")
+  },
+  {
+    method: "GET",
     path: "/album/{num}",
     handler: require("./handlers/albumView")
   },

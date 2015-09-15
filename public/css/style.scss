@@ -1,5 +1,9 @@
-$font-stack:    Courier, Helvetica, sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
+
+$font-stack:    'Lato', Helvetica, sans-serif;
 $primary-color: rgb(136,196,37);
+$grey: rgb(200,200,200);
+$dark-grey: rgb(64,64,64);
 
   nav{
       margin-bottom: 15px;
@@ -10,7 +14,7 @@ $primary-color: rgb(136,196,37);
     margin:0;
     padding:0;
     font-family: $font-stack;
-    font-size: .8em;
+    font-size: .9em;
   }
 
   ol{
@@ -25,6 +29,7 @@ $primary-color: rgb(136,196,37);
 
   .nav_items li{
     display: inline-block;
+    font-size: 1.3em;
   }
 
   a {
@@ -34,6 +39,21 @@ $primary-color: rgb(136,196,37);
 
   a:hover{
     color: $primary-color;
+  }
+
+  .nav-left{
+      margin-right: 20px;
+  }
+
+  .delete{
+    background-color: $grey;
+    padding:10px 7px 12px 7px;
+    border-radius: 10%;
+  }
+
+  .checkout{
+    @extend .delete;
+    margin-right: 20px;
   }
 
   .searchForm{

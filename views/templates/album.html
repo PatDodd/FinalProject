@@ -3,9 +3,10 @@
     <li><img src="{{image}}" alt="albimg" class="albImg" />
     <li>{{artist}}
     <li>{{albumName}}
-    <li><a href="/checkout/{{num}}">CHECKOUT</a> <a href="/delete/{{num}}">DELETE</a>
-    </ul>
-    <h3>Tracks:</h3>
+  </ul>
+  <p><a href="/checkout/{{num}}" class="checkout">CHECKOUT</a><a href="/delete/{{num}}" class="delete">DELETE</a></p>
+  <p></p>
+  <h3>Tracks:</h3>
   <ol>
     {{#each tracks}}
     <li> {{track}}
