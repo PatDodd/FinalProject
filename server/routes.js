@@ -60,6 +60,16 @@ module.exports = [
     handler:require("./handlers/checkout")
   },
   {
+    method: "POST",
+    path: "/lent",
+    handler: require("./handlers/lent")
+  },
+  {
+    method: "GET",
+    path: "/lent",
+    handler: require("./handlers/lent")
+  },
+  {
     method: "GET",
     path: "/delete/{num}",
     handler: require("./handlers/delete")

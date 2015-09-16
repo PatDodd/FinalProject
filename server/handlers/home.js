@@ -5,7 +5,7 @@ var sqlite = require("sqlite3");
 var db = new sqlite.Database("albums.db");
 
 module.exports = function(req, reply){
-  console.log(req.state);
+  //console.log(req.state);
   if(!req.state.username){
     reply.redirect("/login");
   } else {

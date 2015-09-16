@@ -7,7 +7,7 @@ module.exports = function(req, reply){
   if(!req.state.username){
     reply.redirect("/login");
   } else {
-    db.all( "SELECT * FROM albums ORDER BY artist COLLATE NOCASE;", function(err, data){
+    db.all( "SELECT * FROM albums WHERE lent=0 ORDER BY artist COLLATE NOCASE;", function(err, data){
       var albStrgfy = JSON.stringify(data);
       var album = JSON.parse(albStrgfy)[req.params.num];
       var id = album.albumId;

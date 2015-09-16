@@ -3,8 +3,11 @@
     <li><img src="{{image}}" alt="albimg" class="albImg" />
     <li>{{artist}}
     <li>{{albumName}}
-    <li>THIS IS THE CHECKOUT PAGE.
-    </ul>
+    <li>Click below to check out {{albumName}} by {{artist}}
+  </ul>
+  <form method="POST" action="/lent">
+    <button type="submit">Check out this Album</button>
+  </form>
 
 
 
