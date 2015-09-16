@@ -62,12 +62,12 @@ module.exports = [
   {
     method: "POST",
     path: "/lent",
-    handler: require("./handlers/lent")
+    handler: require("./handlers/lentPost")
   },
   {
     method: "GET",
     path: "/lent",
-    handler: require("./handlers/lent")
+    handler: require("./handlers/lentGet")
   },
   {
     method: "GET",

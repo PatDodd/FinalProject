@@ -18,7 +18,8 @@ module.exports = function(req, reply){
                 "albumId": album.albumId,
                 "artist" : album.artist,
                 "albumName" : album.albumName,
-                "albumArtMed" : album.albumArtMed
+                "albumArtMed" : album.albumArtMed,
+                "status": 0
                 };
 
       var a = JSON.stringify(alb);
