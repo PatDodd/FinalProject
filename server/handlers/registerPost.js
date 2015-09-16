@@ -11,45 +11,66 @@ module.exports = function(req, reply){
   var passV = req.payload.password_verify;
   var user = req.payload.user;
 
-  if(pass == passV && user != null && pass != null && passV != null){
-
-  var hashed = bcrypt.hashSync(pass, 10);
-
-  var query = "INSERT INTO users (username, password) VALUES ($username, $password);";
-  var statement = db.prepare(query);
-  statement.run({
-    $username: user,
-    $password: hashed
+  var userCheck = "SELECT username FROM users WHERE username = $user";
+  var uChk = db.prepare(userCheck);
+  uChk.all({
+    $user: user
   }, function(err, data){
-    console.log(err);
-  });
+    if(data[0] == undefined){
+      if(pass == passV && user != null && pass != null && passV != null){
 
-  db.all("SELECT * FROM users", function(err, data){
-    console.log(data);
-  });
+        var hashed = bcrypt.hashSync(pass, 10);
 
-    reply.view(
-      "register", {
-        title: "Register",
-        message: "Register Here: ",
-        status: "Registration Successful! Proceed to Login:",
-        color: "LimeGreen"
-      },
-      {
-        layout: "custom"
-      }
-    );
+        var query = "INSERT INTO users (username, password) VALUES ($username, $password);";
+        var statement = db.prepare(query);
+        statement.run({
+          $username: user,
+          $password: hashed
+        }, function(err, data){
+          console.log(err);
+        });
+
+        db.all("SELECT * FROM users", function(err, data){
+          console.log(data);
+        });
+
+          reply.view(
+            "register", {
+              title: "Register",
+              message: "Register Here: ",
+              status: "Registration Successful! Proceed to Login:",
+              color: "LimeGreen"
+            },
+            {
+              layout: "custom"
+            }
+          );
+        } else {
+          reply.view(
+            "register", {
+              title: "Register",
+              message: "Register Here: ",
+              status: "Passwords don't match or there was a problem with your username. Try again.",
+              color: "red"
+            },
+            {
+              layout: "custom"
+            }
+          );
+      }//close if(pass == passV &&...
   } else {
     reply.view(
       "register", {
         title: "Register",
         message: "Register Here: ",
-        status: "Passwords don't match or there was a problem with your username. Try again.",
+        status: "Username already exists.",
         color: "red"
       },
       {
         layout: "custom"
       }
     );
-  }
-};
+
+  } // end if(data[0]==undef...)
+});//CLOSE uChk.all(...)
+};//close module.exports...
