@@ -5,14 +5,17 @@ var saveToLibrary = require("../../models/saveToLib");
 // var lib = require('../../models/library');
 
 module.exports = function(req, reply){
-  saveToLibrary(function(err, results){
-    if(err){console.error(err);}
+  if(!req.state.username){
+    reply.redirect("/login");
+  } else {
+    saveToLibrary(function(err, results){
 
+      if(err){console.error(err);}
 
-    reply.view("saved", {
-      message: "Success!"
+      reply.view("saved", {
+        message: "Success!",
+        user: req.state.username
+      });
     });
-  });
-
-
+  }
 };

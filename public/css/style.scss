@@ -26,6 +26,12 @@ $dark-grey: rgb(64,64,64);
     font-family: $font-stack;
   }
 
+  .user_greet{
+    float: right;
+    margin-right: 10px;
+    position: relative;
+    bottom: 15px;
+  }
 
   .nav_items li{
     display: inline-block;

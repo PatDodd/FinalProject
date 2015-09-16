@@ -58,19 +58,21 @@ module.exports = function(req, reply){
             }
           );
       }//close if(pass == passV &&...
-  } else {
-    reply.view(
-      "register", {
-        title: "Register",
-        message: "Register Here: ",
-        status: "Username already exists.",
-        color: "red"
-      },
-      {
-        layout: "custom"
-      }
-    );
+    } else {
+      reply.view(
+        "register", {
+          title: "Register",
+          message: "Register Here: ",
+          status: "Username already exists.",
+          color: "red"
+        },
+        {
+          layout: "custom"
+        }
+      );
 
-  } // end if(data[0]==undef...)
-});//CLOSE uChk.all(...)
+    } // end if(data[0]==undef...)
+
+  });//CLOSE uChk.all(...)
+  
 };//close module.exports...

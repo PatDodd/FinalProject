@@ -3,21 +3,24 @@ var getAlbum = require('../../models/getAlb');
 var fs = require('fs');
 
 module.exports = function(req, reply){
-  getAlbum(req.payload.search, function(err,results){
+  if(!req.state.username){
+    reply.redirect("/login");
+  } else {
+    getAlbum(req.payload.search, function(err,results){
 
+      fs.readFile("models/temp.json", "utf8", function(err, data){
 
-    fs.readFile("models/temp.json", "utf8", function(err, data){
+        var result = JSON.parse(data);
 
-      var result = JSON.parse(data);
-
-      reply.view("search", {
-        title: "Search Results",
-        result: result
+        reply.view("search", {
+          title: "Search Results",
+          result: result,
+          user: req.state.username
+        });
       });
+
+    console.log("Complete!");
+
     });
-
-  console.log("Complete!");
-
-});
-
+  }
  };

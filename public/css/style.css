@@ -16,6 +16,12 @@ ol {
 h2, h3, p {
   font-family: "Lato", Helvetica, sans-serif; }
 
+.user_greet {
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  bottom: 15px; }
+
 .nav_items li {
   display: inline-block;
   font-size: 1.3em; }
