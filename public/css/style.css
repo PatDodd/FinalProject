@@ -22,6 +22,9 @@ h2, h3, p {
   position: relative;
   bottom: 15px; }
 
+.hi {
+  margin-right: 10px; }
+
 .nav_items li {
   display: inline-block;
   font-size: 1.3em; }

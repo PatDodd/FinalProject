@@ -45,6 +45,11 @@ module.exports = [
     handler: require("./handlers/search")
   },
   {
+    method: "GET",
+    path: "/error",
+    handler: require("./handlers/error")
+  },
+  {
     method: "POST",
     path: "/saved",
     handler: require("./handlers/saved")
