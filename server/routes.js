@@ -21,6 +21,11 @@ module.exports = [
   },
   {
     method: "GET",
+    path: "/logout",
+    handler: require("./handlers/logout")
+  },
+  {
+    method: "GET",
     path: "/register",
     handler: require("./handlers/register")
   },
