@@ -39,10 +39,16 @@ a:hover {
 .nav-left {
   margin-right: 20px; }
 
-.delete, .checkout {
+.delete, .return, .checkout {
   background-color: #c8c8c8;
   padding: 10px 7px 12px 7px;
   border-radius: 10%; }
+
+#hide_delete, #hide_button, #hide {
+  display: none; }
+
+#show_delete, #show_button, #show {
+  display: inline; }
 
 .checkout {
   margin-right: 20px; }

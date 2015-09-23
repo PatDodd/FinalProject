@@ -1,16 +1,16 @@
 // FinalProject/index.js
 var hapi = require('hapi');
 var sqlite = require("sqlite3");
+var bcrypt = require("bcrypt");
 
 var server = new hapi.Server();
 server.connection({port: 8000});
 
 var db = new sqlite.Database("albums.db", function(err, data){
-  // db.run("DROP TABLE lent");
-  // db.run("UPDATE albums SET lent=0 where lent=1");
+
   db.run("CREATE TABLE IF NOT EXISTS albums(albumId, artistId, artist, albumName, albumArtLg, albumArtMed, albumArtSm, lent BOOLEAN);", function(){
   db.run("CREATE TABLE IF NOT EXISTS tracks (albumId, track);");
-  db.run("CREATE TABLE IF NOT EXISTS users (username, password, userId INTEGER PRIMARY KEY);");
+  db.run("CREATE TABLE IF NOT EXISTS users (username, password, admin, userId INTEGER PRIMARY KEY);");
   db.run("CREATE TABLE IF NOT EXISTS lent (userId, username, albumId, artist, albumName, albumArtMed, date);");
 
     console.log("Starting server!");

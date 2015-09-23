@@ -15,16 +15,29 @@ module.exports = function(req, reply){
            var trksStr = JSON.stringify(data);
            var tracks = JSON.parse(trksStr);
            //console.log(tracks);
-
-      reply.view("album", {
-        title: album.albumName,
-        image: album.albumArtMed,
-        artist: album.artist,
-        albumName: album.albumName,
-        tracks: tracks,
-        num: req.params.num,
-        user: req.state.username
-      });
+           if(req.state.admin == "false"){
+            reply.view("album", {
+              title: album.albumName,
+              image: album.albumArtMed,
+              artist: album.artist,
+              albumName: album.albumName,
+              tracks: tracks,
+              num: req.params.num,
+              user: req.state.username,
+              show_delete: "hide_delete"
+            });
+          } else if(req.state.admin == "true") {
+            reply.view("album", {
+              title: album.albumName,
+              image: album.albumArtMed,
+              artist: album.artist,
+              albumName: album.albumName,
+              tracks: tracks,
+              num: req.params.num,
+              user: req.state.username,
+              show_delete : "show_delete"
+            });
+          }//end if check for admin rights
     });//CLOSE SELECT track FROM tracks
    });//CLOSE SELECT * FROM albums
  }

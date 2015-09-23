@@ -71,6 +71,16 @@ module.exports = [
   },
   {
     method: "GET",
+    path: "/return/{num}",
+    handler: require("./handlers/return")
+  },
+  {
+    method: "POST",
+    path: "/return/{num}",
+    handler: require("./handlers/returnPost")
+  },
+  {
+    method: "GET",
     path: "/delete/{num}",
     handler: require("./handlers/delete")
   },

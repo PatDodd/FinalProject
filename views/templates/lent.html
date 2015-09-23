@@ -1,4 +1,4 @@
-<h3>Albums taken out by {{user}} (you):</h3>
+<h3>{{message}} {{user}}:</h3>
 {{#albums}}
 <div class="albContainers1">
     <ul>
@@ -8,5 +8,7 @@
       <li>Date: {{date}}
       <li>Lent to: {{username}}
     </ul>
+    <p><a href="/return/{{@index}}" class="return" id="{{showmsg}}">RETURN</a></p>
 </div>
+
 {{/albums}}

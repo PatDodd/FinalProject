@@ -7,6 +7,7 @@ module.exports = function(req, reply){
   }, {layout: "custom"});
   session.state("username", null);
   session.state("session", null);
+  session.state("admin", null);
 
   console.log(req.state);
 

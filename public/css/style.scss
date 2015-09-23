@@ -6,7 +6,7 @@ $grey: rgb(200,200,200);
 $dark-grey: rgb(64,64,64);
 
   nav{
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 
   ul{
@@ -59,6 +59,34 @@ $dark-grey: rgb(64,64,64);
     background-color: $grey;
     padding:10px 7px 12px 7px;
     border-radius: 10%;
+  }
+
+  .return{
+    @extend .delete;
+  }
+
+  #hide_delete{
+    display: none;
+  }
+
+  #show_delete{
+    display: inline;
+  }
+
+  #hide_button{
+    @extend #hide_delete;
+  }
+
+  #show_button{
+    @extend #show_delete;
+  }
+
+  #show{
+    @extend #show_delete;
+  }
+
+  #hide{
+    @extend #hide_delete;
   }
 
   .checkout{

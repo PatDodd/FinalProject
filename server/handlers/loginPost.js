@@ -12,9 +12,7 @@ module.exports = function(req, reply){
   var user = req.payload.user;
   var pass = req.payload.password;
 
-  console.log("User: " + user + " Password: " + pass);
-
-  var query = "SELECT password FROM users WHERE username = $user;";
+  var query = "SELECT password, admin FROM users WHERE username = $user;";
   var statement = db.prepare(query);
 
   statement.all({
@@ -26,6 +24,7 @@ module.exports = function(req, reply){
       reply.redirect("/login");}
     else{
       var pHash = data[0].password;
+      var admin = data[0].admin;
       //console.log(pHash);
       bcrypt.compare(pass, pHash, function(err, res) {
         var status = res;
@@ -34,14 +33,21 @@ module.exports = function(req, reply){
 
           var sessionId = uuid.v1();
 
-          var seshCookie = reply.redirect("/");
-          seshCookie.state("username", user);
-          seshCookie.state("session", sessionId);
+          var response = reply.redirect("/");
+          response.state("username", user);
+          response.state("admin", admin);
+          response.state("session", sessionId);
+
         } else {
+
           reply.redirect("/login");
 
         }//close if(status==true...
+
       });//close bcrypt.compare(...
+
     }//close if(data[0]==undefined...
+
   }); //close statement.all(...
+
 };//CLOSE module.exports...

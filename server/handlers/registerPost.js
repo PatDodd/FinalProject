@@ -21,11 +21,12 @@ module.exports = function(req, reply){
 
         var hashed = bcrypt.hashSync(pass, 10);
 
-        var query = "INSERT INTO users (username, password) VALUES ($username, $password);";
+        var query = "INSERT INTO users (username, password, admin) VALUES ($username, $password, $admin);";
         var statement = db.prepare(query);
         statement.run({
           $username: user,
-          $password: hashed
+          $password: hashed,
+          $admin: "false"
         }, function(err, data){
           console.log(err);
         });
@@ -74,5 +75,5 @@ module.exports = function(req, reply){
     } // end if(data[0]==undef...)
 
   });//CLOSE uChk.all(...)
-  
+
 };//close module.exports...

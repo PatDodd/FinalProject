@@ -45,18 +45,41 @@ module.exports = function(req, reply){
                     //console.log(err +" "+ data);
                 });
 
-                db.all("SELECT * from lent WHERE userId="+id+";", function(err, data){
-                  var z = data;
-                  var y = JSON.stringify(z);
-                  var x = JSON.parse(y);
+                if(req.state.admin == "false"){
+                  db.all("SELECT * from lent WHERE userId="+id+";", function(err, data){
+                    var z = data;
+                    var y = JSON.stringify(z);
+                    var x = JSON.parse(y);
+                    for(i=0; i<x.length; i++){
+                      x[i].showmsg = "hide";
+                    }
 
-                  reply.view("lent", {
-                    albums: x,
-                    user: username
-                  });//CLOSE reply.view
+                    reply.view("lent", {
+                      albums: x,
+                      user: username,
+                      message: "Albums taken out by"
 
-                });//close db.all()
+                    });//CLOSE reply.view
 
+                  });//close db.all
+                } else {
+                  db.all("SELECT * from lent;", function(err, data){
+                    var z = data;
+                    var y = JSON.stringify(z);
+                    var x = JSON.parse(y);
+                    for(i=0; i<x.length; i++){
+                      x[i].showmsg = "hide";
+                    }
+
+                    reply.view("lent", {
+                      albums: x,
+                      user: username,
+                      message: "All albums taken out by all users. You're in admin view, "
+
+                    });//CLOSE reply.view
+
+                  });//close db.all
+                }//end if req.stat.admin
               });//close statement.run...
 
           });//CLOSE fs.readFile("models/checkout.json"...
