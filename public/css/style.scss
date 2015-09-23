@@ -127,3 +127,8 @@ $dark-grey: rgb(64,64,64);
   .libImg {
     @extend .albImg;
   }
+
+  .spotify{
+    position:relative;
+    top:8px;
+  }

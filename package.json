@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Patrick Dodd",
+  "license": "No license, not for public use. This is simply an educational project.",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.5",

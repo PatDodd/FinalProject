@@ -77,4 +77,8 @@ a:hover {
   height: auto;
   border: 1px black solid; }
 
+.spotify {
+  position: relative;
+  top: 8px; }
+
 /*# sourceMappingURL=style.css.map */

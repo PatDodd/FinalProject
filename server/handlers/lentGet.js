@@ -36,6 +36,7 @@ module.exports = function(req, reply){
         });//close db.all
 
       });//close db.get...
+
     } else {
 
       db.all("SELECT * from lent ORDER BY username ASC", function(err, data){
